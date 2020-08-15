@@ -117,5 +117,21 @@ namespace QuantityMeasurementTest
             Length inch = new Length(Length.Unit.INCH, 1.0);
             Assert.IsFalse(feet.Compare(inch));
         }
+
+        [Test]
+        public void Given1FeetAnd12Inch_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length feet = new Length(Length.Unit.FEET, 1.0);
+            Length inch = new Length(Length.Unit.INCH, 12.0);
+            Assert.IsTrue(feet.Compare(inch));
+        }
+
+        [Test]
+        public void Given12InchAnd1Feet_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length feet = new Length(Length.Unit.FEET, 1.0);
+            Length inch = new Length(Length.Unit.INCH, 12.0);
+            Assert.IsTrue(inch.Compare(feet));
+        }
     }
 }
