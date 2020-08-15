@@ -18,6 +18,7 @@ namespace QuantityMeasurement
 
         public readonly double FEET_INCH_CONVERTER = 12.0;
         public readonly double FEET_YARD_CONVERTER = 3;
+        public readonly double INCH_YARD_CONVERTER = 36;
 
         public Length(Unit unit, double value)
         {
@@ -47,6 +48,10 @@ namespace QuantityMeasurement
             if(this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.YARD))
             {
                 return that.value.CompareTo(this.value / FEET_YARD_CONVERTER) == 0;
+            }
+            if(this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.INCH))
+            {
+                return that.value.CompareTo(this.value * INCH_YARD_CONVERTER) == 0;
             }
             return false;
         }

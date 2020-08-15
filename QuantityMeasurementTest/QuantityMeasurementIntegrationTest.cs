@@ -154,7 +154,7 @@ namespace QuantityMeasurementTest
         public void Given3FeetAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
         {
             Length feet = new Length(Length.Unit.FEET, 3.0);
-            Length yard = new Length(Length.Unit.YARD, 1);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
             Assert.IsTrue(feet.Compare(yard));
         }
 
@@ -162,7 +162,7 @@ namespace QuantityMeasurementTest
         public void Given1FeetAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
         {
             Length feet = new Length(Length.Unit.FEET, 1.0);
-            Length yard = new Length(Length.Unit.YARD, 1);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
             Assert.IsFalse(feet.Compare(yard));
         }
 
@@ -170,8 +170,16 @@ namespace QuantityMeasurementTest
         public void Given1InchAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
         {
             Length inch = new Length(Length.Unit.INCH, 1.0);
-            Length yard = new Length(Length.Unit.YARD, 1);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
             Assert.IsFalse(inch.Compare(yard));
+        }
+
+        [Test]
+        public void Given1YardAnd36Inch_WhenCalculated_ThenShouldReturnFalse()
+        {
+            Length inch = new Length(Length.Unit.INCH, 36.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(yard.Compare(inch));
         }
     }
 }
