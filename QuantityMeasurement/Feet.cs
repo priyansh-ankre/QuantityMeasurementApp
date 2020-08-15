@@ -15,8 +15,11 @@ namespace QuantityMeasurement
 
         public override bool Equals(object obj)
         {
-            return obj is Feet feet &&
-                   this.feet == feet.feet;
+            if (obj == null)
+            {
+                return true;
+            }
+            return obj is Feet feet && this.feet == feet.feet;
         }
     }
 }
