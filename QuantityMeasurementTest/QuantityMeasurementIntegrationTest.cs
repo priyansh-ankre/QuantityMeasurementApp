@@ -20,5 +20,13 @@ namespace QuantityMeasurementTest
             var nullCheck = feet.Equals(null);
             Assert.IsTrue(nullCheck);
         }
+
+        [Test]
+        public void GivenFeet1AndFeet2_WhenCalculated_ThenShouldReturnEqual()
+        {
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = feet1;
+            Assert.AreEqual(feet1, feet2);
+        }
     }
 }
