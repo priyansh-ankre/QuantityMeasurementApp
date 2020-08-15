@@ -165,5 +165,13 @@ namespace QuantityMeasurementTest
             Length yard = new Length(Length.Unit.YARD, 1);
             Assert.IsFalse(feet.Compare(yard));
         }
+
+        [Test]
+        public void Given1InchAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
+        {
+            Length inch = new Length(Length.Unit.INCH, 1.0);
+            Length yard = new Length(Length.Unit.YARD, 1);
+            Assert.IsFalse(inch.Compare(yard));
+        }
     }
 }
