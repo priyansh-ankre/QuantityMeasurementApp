@@ -15,6 +15,8 @@ namespace QuantityMeasurement
         public readonly Unit unit;
         public readonly double value;
 
+        public readonly double FEET_INCH_CONVERTER = 12.0;
+
         public Length(Unit unit, double value)
         {
             this.unit = unit;
@@ -28,7 +30,15 @@ namespace QuantityMeasurement
 
         public bool Compare(Length that)
         {
-            return true;
+            if (this.unit.Equals(that.unit))
+            {
+                return this.Equals(that);
+            }
+            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
+            {
+                return that.value.CompareTo(this.value * FEET_INCH_CONVERTER) == 0;
+            }
+            return false;
         }
     }
 }
