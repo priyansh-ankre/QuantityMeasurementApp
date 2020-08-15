@@ -149,5 +149,53 @@ namespace QuantityMeasurementTest
             Length inch2 = new Length(Length.Unit.INCH, 1.0);
             Assert.IsTrue(inch1.Compare(inch2));
         }
+
+        [Test]
+        public void Given3FeetAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length feet = new Length(Length.Unit.FEET, 3.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(feet.Compare(yard));
+        }
+
+        [Test]
+        public void Given1FeetAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
+        {
+            Length feet = new Length(Length.Unit.FEET, 1.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsFalse(feet.Compare(yard));
+        }
+
+        [Test]
+        public void Given1InchAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
+        {
+            Length inch = new Length(Length.Unit.INCH, 1.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsFalse(inch.Compare(yard));
+        }
+
+        [Test]
+        public void Given1YardAnd36Inch_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length inch = new Length(Length.Unit.INCH, 36.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(yard.Compare(inch));
+        }
+
+        [Test]
+        public void Given36InchAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length inch = new Length(Length.Unit.INCH, 36.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(inch.Compare(yard));
+        }
+
+        [Test]
+        public void Given1YardAnd3Feet_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length feet = new Length(Length.Unit.FEET, 3.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(yard.Compare(feet));
+        }
     }
 }
