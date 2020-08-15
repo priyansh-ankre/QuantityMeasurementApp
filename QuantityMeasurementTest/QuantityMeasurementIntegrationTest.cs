@@ -28,5 +28,13 @@ namespace QuantityMeasurementTest
             Feet feet2 = feet1;
             Assert.AreEqual(feet1, feet2);
         }
+
+        [Test]
+        public void GivenFeet1AndFeet2_WhenCalculatedForSameType_ThenShouldReturnEqual()
+        {
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = new Feet(1.0);
+            Assert.AreEqual(feet1.GetType(), feet2.GetType());
+        }
     }
 }
