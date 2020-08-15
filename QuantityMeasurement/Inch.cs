@@ -13,9 +13,13 @@ namespace QuantityMeasurement
             this.inch = value;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object value)
         {
-            return obj is Inch inch && this.inch == inch.inch;
+            if (value == null)
+            {
+                return false;
+            }
+            return value is Inch inch && this.inch == inch.inch;
         }
     }
 }
