@@ -8,55 +8,55 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenZeroFeetAndZeroFeet_WhenCalculated_ThenShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(0.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 0.0);
             Assert.AreEqual(feet1, feet2);
         }
 
         [Test]
-        public void GivenZeroFeetAndNull_WhenCalculated_ThenShouldReturnTrue()
+        public void GivenZeroFeetAndNull_WhenCalculated_ThenShouldReturnFalse()
         {
-            Feet feet = new Feet(0.0);
+            Length feet = new Length(Length.Unit.FEET, 0.0);
             var nullCheck = feet.Equals(null);
-            Assert.IsTrue(nullCheck);
+            Assert.IsFalse(nullCheck);
         }
 
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculated_ThenShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = feet1;
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = feet1;
             Assert.AreEqual(feet1, feet2);
         }
 
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculatedForSameType_ThenShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(1.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 1.0);
             Assert.AreEqual(feet1.GetType(), feet2.GetType());
         }
 
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculated_ThenShouldNotReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(1.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 1.0);
             Assert.AreNotEqual(feet1, feet2);
         }
 
         [Test]
         public void GivenZeroInchAndZeroInch_WhenCalculated_ThenShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = new Length(Length.Unit.INCH, 0.0);
             Assert.AreEqual(inch1, inch2);
         }
 
         [Test]
         public void GivenZeroInchAndNull_WhenCalculated_ThenShouldReturnFalse()
         {
-            Inch inch = new Inch(0.0);
+            Length inch = new Length(Length.Unit.INCH, 0.0);
             var nullCheck = inch.Equals(null);
             Assert.IsFalse(nullCheck);
         }
@@ -64,25 +64,34 @@ namespace QuantityMeasurementTest
         [Test]
         public void GivenInch1AndInch2_WhenCalculatedForReference_ThenShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = inch1;
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = inch1;
             Assert.AreEqual(inch1, inch2);
         }
 
         [Test]
         public void GivenInch1AndInch2_WhenCalculatedForType_ThenShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = new Length(Length.Unit.INCH, 1.0);
             Assert.AreEqual(inch1.GetType(), inch2.GetType());
         }
 
         [Test]
-        public void GivenZeroInchAndZeroInch_WhenCalculated_ThenShouldNotReturnEqual()
+        public void GivenZeroInchAndOneInch_WhenCalculated_ThenShouldNotReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(1.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = new Length(Length.Unit.INCH, 1.0);
             Assert.AreNotEqual(inch1, inch2);
+        }
+
+        [Test]
+        public void GivenZeroFeetAndZeroInch_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length feet = new Length(Length.Unit.FEET, 0.0);
+            Length inch = new Length(Length.Unit.INCH, 0.0);
+            Assert.IsTrue(feet.Compare(inch));
+
         }
     }
 }
