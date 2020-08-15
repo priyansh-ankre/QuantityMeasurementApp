@@ -53,6 +53,10 @@ namespace QuantityMeasurement
             {
                 return that.value.CompareTo(this.value * INCH_YARD_CONVERTER) == 0;
             }
+            if (this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.YARD))
+            {
+                return that.value.CompareTo(this.value / INCH_YARD_CONVERTER) == 0;
+            }
             return false;
         }
     }

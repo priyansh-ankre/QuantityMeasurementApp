@@ -181,5 +181,13 @@ namespace QuantityMeasurementTest
             Length yard = new Length(Length.Unit.YARD, 1.0);
             Assert.IsTrue(yard.Compare(inch));
         }
+
+        [Test]
+        public void Given36InchAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
+        {
+            Length inch = new Length(Length.Unit.INCH, 36.0);
+            Length yard = new Length(Length.Unit.YARD, 1.0);
+            Assert.IsTrue(inch.Compare(yard));
+        }
     }
 }
