@@ -175,7 +175,7 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void Given1YardAnd36Inch_WhenCalculated_ThenShouldReturnFalse()
+        public void Given1YardAnd36Inch_WhenCalculated_ThenShouldReturnTrue()
         {
             Length inch = new Length(Length.Unit.INCH, 36.0);
             Length yard = new Length(Length.Unit.YARD, 1.0);
