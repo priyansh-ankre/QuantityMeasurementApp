@@ -307,5 +307,13 @@ namespace QuantityMeasurementTest
             Quantity addedQuantities = oneTonne.AddValue(thousandGram);
             Assert.AreEqual(expectedKillogram, addedQuantities);
         }
+
+        [Test]
+        public void Given212Fahrenheitand100Celsius_WhenCompared_ThenShouldReturnEqual()
+        {
+            Quantity fahrenheit = new Quantity(Unit.FAHRENHIET, 212.0);
+            Quantity celsius = new Quantity(Unit.CELCIUS, 100.0);
+            Assert.AreEqual(fahrenheit, celsius);
+        }
     }
 }
