@@ -273,7 +273,7 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void Given1LitreAnd1000MilliLitres_WhenAdded_ShouldReturns2Litres()
+        public void Given1LitreAnd1000MilliLitres_WhenAdded_ThenShouldReturns2Litres()
         {
             Quantity litres = new Quantity(Unit.LITRE, 1.0);
             Quantity milliLitre = new Quantity(Unit.MILILITRE, 1000.0);
@@ -283,7 +283,7 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void Given1KilogramAnd1000Grams_WhenCompared_ShouldReturnEqual()
+        public void Given1KilogramAnd1000Grams_WhenCompared_ThenShouldReturnEqual()
         {
             Quantity oneKilogram = new Quantity(Unit.KILOGRAM, 1.0);
             Quantity thousandGram = new Quantity(Unit.GRAM, 1000.0);
@@ -291,11 +291,21 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void Given1TonneAnd1000Killogram_WhenCompared_ShouldReturnEqual()
+        public void Given1TonneAnd1000Killogram_WhenCompared_ThenShouldReturnEqual()
         {
             Quantity oneTonne = new Quantity(Unit.TONNE, 1.0);
             Quantity thousandKillogram = new Quantity(Unit.KILOGRAM, 1000.0);
             Assert.AreEqual(oneTonne, thousandKillogram);
+        }
+
+        [Test]
+        public void Given1TonneAnd1000Gram_WhenAdded_ThenShouldReturn1001Killogram()
+        {
+            Quantity oneTonne = new Quantity(Unit.TONNE, 1.0);
+            Quantity thousandGram = new Quantity(Unit.GRAM, 1000.0);
+            Quantity expectedKillogram = new Quantity(Unit.KILOGRAM, 1001.0);
+            Quantity addedQuantities = oneTonne.AddValue(thousandGram);
+            Assert.AreEqual(expectedKillogram, addedQuantities);
         }
     }
 }
