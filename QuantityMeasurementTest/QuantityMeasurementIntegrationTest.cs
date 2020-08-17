@@ -247,11 +247,19 @@ namespace QuantityMeasurementTest
         }
 
         [Test]
-        public void GivenOneGallonToLitre_WhenCompared_ShouldReturnsEquals()
+        public void GivenOneGallonToLitre_WhenCompared_ThenShouldReturnsEquals()
         {
             Quantity oneGallon = new Quantity(Unit.GALLON, 1.0);
             Quantity litre = new Quantity(Unit.LITRE, 3.78);
             Assert.AreEqual(oneGallon, litre);
+        }
+
+        [Test]
+        public void Given1LitreAnd1000MilliLitre_WhenCompared_ThenShouldReturnsEqual()
+        {
+            Quantity litre = new Quantity(Unit.LITRE, 1.0);
+            Quantity milliLitre = new Quantity(Unit.MILILITRE,1000.0);
+            Assert.AreEqual(litre, milliLitre);
         }
     }
 }
