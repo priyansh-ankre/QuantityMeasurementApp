@@ -25,6 +25,8 @@ namespace QuantityMeasurement
 
         public Quantity AddValue(Quantity that)
         {
+            if(this.unit==Unit.CELCIUS||this.unit==Unit.FAHRENHIET|| that.unit == Unit.CELCIUS || that.unit == Unit.FAHRENHIET)
+                throw new QuantityMeasurementException("Addition of temprature is not valid", QuantityMeasurementException.ExceptionType.INVALID_EXCEPTION);
             return new Quantity(Unit.INCH,this.unit.GetConvertedValue(this.value) + that.unit.GetConvertedValue(that.value));
         }
     }

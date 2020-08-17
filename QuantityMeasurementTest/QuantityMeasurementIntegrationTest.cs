@@ -315,5 +315,14 @@ namespace QuantityMeasurementTest
             Quantity celsius = new Quantity(Unit.CELCIUS, 100.0);
             Assert.AreEqual(fahrenheit, celsius);
         }
+
+        [Test]
+        public void Given212Fahrenheitand100Celsius_WhenAdded_ThenShouldReturnInvalidException()
+        {
+            Quantity fahrenheit = new Quantity(Unit.FAHRENHIET, 212.0);
+            Quantity celsius = new Quantity(Unit.CELCIUS, 100.0);
+            QuantityMeasurementException exception = Assert.Throws<QuantityMeasurementException>(() => fahrenheit.AddValue(celsius));
+            Assert.AreEqual(QuantityMeasurementException.ExceptionType.INVALID_EXCEPTION, exception.type);
+        }
     }
 }
