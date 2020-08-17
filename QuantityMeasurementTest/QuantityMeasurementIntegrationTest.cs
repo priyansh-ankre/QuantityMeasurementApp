@@ -261,5 +261,15 @@ namespace QuantityMeasurementTest
             Quantity milliLitre = new Quantity(Unit.MILILITRE,1000.0);
             Assert.AreEqual(litre, milliLitre);
         }
+
+        [Test]
+        public void GivenGallonAndLitre_WhenAdded_ShouldReturnsCorrespndingLitres()
+        {
+            Quantity gallon = new Quantity(Unit.GALLON, 1.0);
+            Quantity litres = new Quantity(Unit.LITRE, 3.78);
+            Quantity expectedLitres = new Quantity(Unit.LITRE, 7.56);
+            Quantity addedQuantity = gallon.AddValue(litres);
+            Assert.AreEqual(expectedLitres, addedQuantity);
+        }
     }
 }
