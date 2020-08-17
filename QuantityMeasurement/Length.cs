@@ -22,5 +22,10 @@ namespace QuantityMeasurement
             Length that = (Length)obj;
             return Double.Equals(that.unit.GetConvertedValue(that.value), this.unit.GetConvertedValue(this.value));
         }
+
+        public Length AddValue(Length that)
+        {
+            return new Length(Unit.INCH,this.unit.GetConvertedValue(this.value) + that.unit.GetConvertedValue(that.value));
+        }
     }
 }

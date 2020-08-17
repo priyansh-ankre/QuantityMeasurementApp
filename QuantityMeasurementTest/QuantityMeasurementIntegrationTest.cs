@@ -205,5 +205,45 @@ namespace QuantityMeasurementTest
             Length centiMeter = new Length(Unit.CENTIMETER, 5.0);
             Assert.IsTrue(inch.Equals(centiMeter));
         }
+
+        [Test]
+        public void Given2InchesAnd2Inches_WhenAdded_ThenShouldRetunsFourInches()
+        {
+            Length inch1 = new Length(Unit.INCH, 2.0);
+            Length inch2 = new Length(Unit.INCH, 2.0);
+            Length expectedInch = new Length(Unit.INCH, 4.0);
+            Length addedInch = inch1.AddValue(inch2);
+            Assert.AreEqual(expectedInch, addedInch);
+        }
+
+        [Test]
+        public void Given1FeetAnd2Inches_WhenAdded_ThenShouldRetuns14Inches()
+        {
+            Length feet = new Length(Unit.FEET, 1.0);
+            Length inch = new Length(Unit.INCH, 2.0);
+            Length expectedInch = new Length(Unit.INCH, 14.0);
+            Length addedInchAndfeet = feet.AddValue(inch);
+            Assert.AreEqual(expectedInch, addedInchAndfeet);
+        }
+
+        [Test]
+        public void Given1FeetAnd1Feet_WhenAdded_ThenShouldRetuns24Inches()
+        {
+            Length feet1 = new Length(Unit.FEET, 1.0);
+            Length feet2 = new Length(Unit.FEET, 1.0);
+            Length expectedInch = new Length(Unit.INCH, 24.0);
+            Length addedFeets = feet1.AddValue(feet2);
+            Assert.AreEqual(expectedInch, addedFeets);
+        }
+
+        [Test]
+        public void GivenInchAndCentimeter_WhenAdded_ThenShouldRetuns3Inch()
+        {
+            Length inch = new Length(Unit.INCH, 2.0);
+            Length centiMeter = new Length(Unit.CENTIMETER, 2.5);
+            Length expectedInch = new Length(Unit.INCH, 3.0);
+            Length addedInchAndCentimeter = inch.AddValue(centiMeter);
+            Assert.AreEqual(expectedInch, addedInchAndCentimeter);
+        }
     }
 }
