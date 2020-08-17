@@ -281,5 +281,13 @@ namespace QuantityMeasurementTest
             Quantity addedQuantities = litres.AddValue(milliLitre);
             Assert.AreEqual(expectedLitres, addedQuantities);
         }
+
+        [Test]
+        public void Given1KilogramAnd1000Grams_WhenCompared_ShouldReturnEqual()
+        {
+            Quantity oneKilogram = new Quantity(Unit.KILOGRAM, 1.0);
+            Quantity thousandGram = new Quantity(Unit.GRAM, 1000.0);
+            Assert.AreEqual(oneKilogram, thousandGram);
+        }
     }
 }
