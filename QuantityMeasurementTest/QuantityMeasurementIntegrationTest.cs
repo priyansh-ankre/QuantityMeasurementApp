@@ -205,5 +205,15 @@ namespace QuantityMeasurementTest
             Length centiMeter = new Length(Unit.CENTIMETER, 5.0);
             Assert.IsTrue(inch.Equals(centiMeter));
         }
+
+        [Test]
+        public void Given2InchesAnd2Inches_WhenAdded_ThenShouldRetunsFourInches()
+        {
+            Length inch1 = new Length(Unit.INCH, 2.0);
+            Length inch2 = new Length(Unit.INCH, 2.0);
+            Length expectedInch = new Length(Unit.INCH, 4.0);
+            Length addedInch = inch1.AddValue(inch2);
+            Assert.AreEqual(expectedInch, addedInch);
+        }
     }
 }
