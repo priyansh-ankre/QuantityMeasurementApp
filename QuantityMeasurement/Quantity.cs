@@ -1,13 +1,13 @@
 ﻿using System;
 namespace QuantityMeasurement
 {
-    public class Length
+    public class Quantity
     {
 
         public readonly Unit unit;
         public readonly double value;
 
-        public Length(Unit unit, double value)
+        public Quantity(Unit unit, double value)
         {
             this.unit = unit;
             this.value = value;
@@ -19,13 +19,13 @@ namespace QuantityMeasurement
                 return false;
             if (obj == this)
                 return true;
-            Length that = (Length)obj;
+            Quantity that = (Quantity)obj;
             return Double.Equals(that.unit.GetConvertedValue(that.value), this.unit.GetConvertedValue(this.value));
         }
 
-        public Length AddValue(Length that)
+        public Quantity AddValue(Quantity that)
         {
-            return new Length(Unit.INCH,this.unit.GetConvertedValue(this.value) + that.unit.GetConvertedValue(that.value));
+            return new Quantity(Unit.INCH,this.unit.GetConvertedValue(this.value) + that.unit.GetConvertedValue(that.value));
         }
     }
 }
