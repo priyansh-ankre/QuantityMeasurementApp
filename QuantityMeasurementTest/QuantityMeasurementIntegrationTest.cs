@@ -235,5 +235,15 @@ namespace QuantityMeasurementTest
             Length addedFeets = feet1.AddValue(feet2);
             Assert.AreEqual(expectedInch, addedFeets);
         }
+
+        [Test]
+        public void GivenInchAndCentimeter_WhenAdded_ThenShouldRetuns3Inch()
+        {
+            Length inch = new Length(Unit.INCH, 2.0);
+            Length centiMeter = new Length(Unit.CENTIMETER, 2.5);
+            Length expectedInch = new Length(Unit.INCH, 3.0);
+            Length addedInchAndCentimeter = inch.AddValue(centiMeter);
+            Assert.AreEqual(expectedInch, addedInchAndCentimeter);
+        }
     }
 }
