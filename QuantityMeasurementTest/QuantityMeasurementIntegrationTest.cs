@@ -289,5 +289,13 @@ namespace QuantityMeasurementTest
             Quantity thousandGram = new Quantity(Unit.GRAM, 1000.0);
             Assert.AreEqual(oneKilogram, thousandGram);
         }
+
+        [Test]
+        public void Given1TonneAnd1000Killogram_WhenCompared_ShouldReturnEqual()
+        {
+            Quantity oneTonne = new Quantity(Unit.TONNE, 1.0);
+            Quantity thousandKillogram = new Quantity(Unit.KILOGRAM, 1000.0);
+            Assert.AreEqual(oneTonne, thousandKillogram);
+        }
     }
 }
