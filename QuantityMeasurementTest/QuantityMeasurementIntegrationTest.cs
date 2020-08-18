@@ -1,10 +1,22 @@
-using NUnit.Framework;
-using QuantityMeasurement;
-
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="QuantityMeasurementIntegrationTest.cs" company="Bridgelabz">
+//   Copyright © 2020 Company="BridgeLabz"
+// </copyright>
+// <creator name="Priyansh"/>
+// --------------------------------------------------------------------------------------------------------------------
 namespace QuantityMeasurementTest
 {
+    using NUnit.Framework;
+    using QuantityMeasurement;
+
+    /// <summary>
+    /// This class Contains the TestCases to check the functionality of Quantity Class
+    /// </summary>
     public class QuantityMeasurementIntegrationTest
     {
+        /// <summary>
+        /// Given 0.0 feet and 0.0 feet Returns the Equal
+        /// </summary>
         [Test]
         public void GivenZeroFeetAndZeroFeet_WhenCalculated_ThenShouldReturnEqual()
         {
@@ -13,6 +25,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1, feet2);
         }
 
+        /// <summary>
+        /// Given 0.0 feet and null Returns False
+        /// </summary>
         [Test]
         public void GivenZeroFeetAndNull_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -21,6 +36,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(nullCheck);
         }
 
+        /// <summary>
+        /// Given 0.0 feet as feet1 and reference of feet1 Returns true
+        /// </summary>
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculated_ThenShouldReturnEqual()
         {
@@ -29,6 +47,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1, feet2);
         }
 
+        /// <summary>
+        /// Given 0.0 feet and 1.0 feet When type checked Returns Equal
+        /// </summary>
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculatedForSameType_ThenShouldReturnEqual()
         {
@@ -37,6 +58,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(feet1.GetType(), feet2.GetType());
         }
 
+        /// <summary>
+        /// Given 0.0 feet and 1.0 feet Returns Not Equal
+        /// </summary>
         [Test]
         public void GivenFeet1AndFeet2_WhenCalculated_ThenShouldNotReturnEqual()
         {
@@ -45,6 +69,9 @@ namespace QuantityMeasurementTest
             Assert.AreNotEqual(feet1, feet2);
         }
 
+        /// <summary>
+        /// Given 0.0 inch and 0.0 feet Returns Equal
+        /// </summary>
         [Test]
         public void GivenZeroInchAndZeroInch_WhenCalculated_ThenShouldReturnEqual()
         {
@@ -53,6 +80,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch1, inch2);
         }
 
+        /// <summary>
+        /// Given 0.0 inch and null Returns False
+        /// </summary>
         [Test]
         public void GivenZeroInchAndNull_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -61,6 +91,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(nullCheck);
         }
 
+        /// <summary>
+        /// Given Inch1 And Inch2 When Calculated For Reference Return Equal
+        /// </summary>
         [Test]
         public void GivenInch1AndInch2_WhenCalculatedForReference_ThenShouldReturnEqual()
         {
@@ -69,6 +102,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch1, inch2);
         }
 
+        /// <summary>
+        /// Given 0.0 inch And 1.0 inch When Calculated For Type Then Should Return Equal
+        /// </summary>
         [Test]
         public void GivenInch1AndInch2_WhenCalculatedForType_ThenShouldReturnEqual()
         {
@@ -77,6 +113,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(inch1.GetType(), inch2.GetType());
         }
 
+        /// <summary>
+        /// Given 0.0 inch And 1.0 inch When Calculated Then Should Return Not Equal
+        /// </summary>
         [Test]
         public void GivenZeroInchAndOneInch_WhenCalculated_ThenShouldNotReturnEqual()
         {
@@ -85,15 +124,20 @@ namespace QuantityMeasurementTest
             Assert.AreNotEqual(inch1, inch2);
         }
 
+        /// <summary>
+        /// Given 0.0 feet And 0.0 inch When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void GivenZeroFeetAndZeroInch_WhenCalculated_ThenShouldReturnTrue()
         {
             Quantity feet = new Quantity(Unit.FEET, 0.0);
             Quantity inch = new Quantity(Unit.INCH, 0.0);
             Assert.IsTrue(feet.Equals(inch));
-
         }
 
+        /// <summary>
+        /// Given 0.0 feet And 1.0 inch When Calculated Then Should Return False
+        /// </summary>
         [Test]
         public void Given0FeetAnd1Inch_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -102,6 +146,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(feet.Equals(inch));
         }
 
+        /// <summary>
+        /// Given 1.0 inch And 1.0 feet When Calculated Then Should Return False
+        /// </summary>
         [Test]
         public void Given1InchAnd1Feet_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -110,6 +157,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(inch.Equals(feet));
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 1.0 inch When Calculated Then Should Return False
+        /// </summary>
         [Test]
         public void Given1FeetAnd1Inch_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -118,6 +168,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(feet.Equals(inch));
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 12.0 inch When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void Given1FeetAnd12Inch_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -126,6 +179,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(feet.Equals(inch));
         }
 
+        /// <summary>
+        /// Given 12.0 inch And 1.0 feet When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void Given12InchAnd1Feet_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -134,6 +190,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(inch.Equals(feet));
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 1.0 feet When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void Given1FeetAnd1Feet_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -142,6 +201,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(feet1.Equals(feet2));
         }
 
+        /// <summary>
+        /// Given 1.0 inch And 1.0 inch When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void Given1InchAnd1Inch_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -150,6 +212,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(inch1.Equals(inch2));
         }
 
+        /// <summary>
+        /// Given 3.0 feet And 1.0 yard When Calculated Then Should Return True
+        /// </summary>
         [Test]
         public void Given3FeetAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -158,6 +223,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(feet.Equals(yard));
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 1.0 yard When Calculated Then Should Return False
+        /// </summary>
         [Test]
         public void Given1FeetAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -166,6 +234,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(feet.Equals(yard));
         }
 
+        /// <summary>
+        /// Given 1.0 inch And 1.0 yard When Calculated Then Should Return False
+        /// </summary>
         [Test]
         public void Given1InchAnd1Yard_WhenCalculated_ThenShouldReturnFalse()
         {
@@ -174,6 +245,9 @@ namespace QuantityMeasurementTest
             Assert.IsFalse(inch.Equals(yard));
         }
 
+        /// <summary>
+        /// Given 1.0 yard And 36.0 inch When Calculated Then Should Return true
+        /// </summary>
         [Test]
         public void Given1YardAnd36Inch_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -182,6 +256,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(yard.Equals(inch));
         }
 
+        /// <summary>
+        /// Given 36.0 inch And 1.0 yard When Calculated Then Should Return true
+        /// </summary>
         [Test]
         public void Given36InchAnd1Yard_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -190,6 +267,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(inch.Equals(yard));
         }
 
+        /// <summary>
+        /// Given 1.0 yard And 3 feet When Calculated Then Should Return true
+        /// </summary>
         [Test]
         public void Given1YardAnd3Feet_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -198,6 +278,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(yard.Equals(feet));
         }
 
+        /// <summary>
+        /// Given 2.0 inch And 5.0 centimeter When Calculated Then Should Return true
+        /// </summary>
         [Test]
         public void Given2Inchand5CentiMeter_WhenCalculated_ThenShouldReturnTrue()
         {
@@ -206,6 +289,9 @@ namespace QuantityMeasurementTest
             Assert.IsTrue(inch.Equals(centiMeter));
         }
 
+        /// <summary>
+        /// Given 2.0 inch And 2.0 inch When Added Then Should Return 4.0 inches
+        /// </summary>
         [Test]
         public void Given2InchesAnd2Inches_WhenAdded_ThenShouldRetunsFourInches()
         {
@@ -216,6 +302,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedInch, addedInch);
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 2.0 inch When Added Then Should Return 14.0 inches
+        /// </summary>
         [Test]
         public void Given1FeetAnd2Inches_WhenAdded_ThenShouldRetuns14Inches()
         {
@@ -226,6 +315,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedInch, addedInchAndfeet);
         }
 
+        /// <summary>
+        /// Given 1.0 feet And 1.0 feet When Added Then Should Return 24.0 inches
+        /// </summary>
         [Test]
         public void Given1FeetAnd1Feet_WhenAdded_ThenShouldRetuns24Inches()
         {
@@ -236,6 +328,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedInch, addedFeets);
         }
 
+        /// <summary>
+        /// Given 2.0 inch And 2.5 centimeter When Added Then Should Return 3.0 inches
+        /// </summary>
         [Test]
         public void GivenInchAndCentimeter_WhenAdded_ThenShouldRetuns3Inch()
         {
@@ -246,6 +341,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedInch, addedInchAndCentimeter);
         }
 
+        /// <summary>
+        /// Given 1 gallon and 3.78 liter When Compared Then Should Return Equal
+        /// </summary>
         [Test]
         public void GivenOneGallonToLitre_WhenCompared_ThenShouldReturnsEquals()
         {
@@ -254,14 +352,20 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(oneGallon, litre);
         }
 
+        /// <summary>
+        /// Given 1 liter And 1000 milliliter When Compared Then Should Return Equal
+        /// </summary>
         [Test]
         public void Given1LitreAnd1000MilliLitre_WhenCompared_ThenShouldReturnsEqual()
         {
             Quantity litre = new Quantity(Unit.LITRE, 1.0);
-            Quantity milliLitre = new Quantity(Unit.MILILITRE,1000.0);
+            Quantity milliLitre = new Quantity(Unit.MILILITRE, 1000.0);
             Assert.AreEqual(litre, milliLitre);
         }
 
+        /// <summary>
+        /// Given 1 gallon And 3.78 liter When Added Then Should Return 7.56 liter
+        /// </summary>
         [Test]
         public void GivenGallonAndLitre_WhenAdded_ShouldReturnsCorrespndingLitres()
         {
@@ -272,6 +376,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedLitres, addedQuantity);
         }
 
+        /// <summary>
+        /// Given 1 liter And 1000 milliliter When Added Then Should Return 2 liter
+        /// </summary>
         [Test]
         public void Given1LitreAnd1000MilliLitres_WhenAdded_ThenShouldReturns2Litres()
         {
@@ -282,6 +389,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedLitres, addedQuantities);
         }
 
+        /// <summary>
+        /// Given 1 kilogram And 1000 gram When Compared Then Should Return Equal
+        /// </summary>
         [Test]
         public void Given1KilogramAnd1000Grams_WhenCompared_ThenShouldReturnEqual()
         {
@@ -290,6 +400,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(oneKilogram, thousandGram);
         }
 
+        /// <summary>
+        /// Given 1 tone And 1000 kilogram When Compared Then Should Return Equal
+        /// </summary>
         [Test]
         public void Given1TonneAnd1000Killogram_WhenCompared_ThenShouldReturnEqual()
         {
@@ -298,6 +411,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(oneTonne, thousandKillogram);
         }
 
+        /// <summary>
+        /// Given 1 tone And 1000 gram When Added Then Should Return 1001 kilogram
+        /// </summary>
         [Test]
         public void Given1TonneAnd1000Gram_WhenAdded_ThenShouldReturn1001Killogram()
         {
@@ -308,6 +424,9 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(expectedKillogram, addedQuantities);
         }
 
+        /// <summary>
+        /// Given 212 fahrenheit And 100 celsius When Compared Then Should Return Equal
+        /// </summary>
         [Test]
         public void Given212Fahrenheitand100Celsius_WhenCompared_ThenShouldReturnEqual()
         {
@@ -316,13 +435,16 @@ namespace QuantityMeasurementTest
             Assert.AreEqual(fahrenheit, celsius);
         }
 
+        /// <summary>
+        /// Given 212 fahrenheit And 100 celsius When Added Then Should Return INVALID_EXCEPTION
+        /// </summary>
         [Test]
         public void Given212Fahrenheitand100Celsius_WhenAdded_ThenShouldReturnInvalidException()
         {
             Quantity fahrenheit = new Quantity(Unit.FAHRENHIET, 212.0);
             Quantity celsius = new Quantity(Unit.CELCIUS, 100.0);
             QuantityMeasurementException exception = Assert.Throws<QuantityMeasurementException>(() => fahrenheit.AddValue(celsius));
-            Assert.AreEqual(QuantityMeasurementException.ExceptionType.INVALID_EXCEPTION, exception.type);
+            Assert.AreEqual(QuantityMeasurementException.ExceptionType.INVALID_EXCEPTION, exception.Type);
         }
     }
 }
